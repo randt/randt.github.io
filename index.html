@@ -1,1 +1,67 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayHere Simple Payment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+        input[type="text"], input[type="email"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>PayHere Payment</h1>
+    <p>Enter the amount and your details to proceed with payment.</p>
+    <form method="POST" action="https://sandbox.payhere.lk/pay/checkout">
+        <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID"> <!-- Replace with your Merchant ID -->
+        <input type="hidden" name="return_url" value="https://yourwebsite.com/return">
+        <input type="hidden" name="cancel_url" value="https://yourwebsite.com/cancel">
+        <input type="hidden" name="notify_url" value="https://yourwebsite.com/notify">
+
+        <label for="amount">Amount (LKR):</label>
+        <input type="text" id="amount" name="amount" placeholder="Enter amount" required>
+
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" placeholder="Enter first name" required>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" placeholder="Enter last name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter phone number" required>
+
+        <input type="submit" value="Pay Now">
+    </form>
+</body>
+</html>
